@@ -1,0 +1,19 @@
+#Remove all volumes not in use 
+    >docker volume prune
+#Remove all network image container not in use 
+    >docker system prune
+#Remove all dangling image
+    >docker image prune
+#Run docker container in interactive mode 
+    Following lines are related to linux stdin stdout channels and help to run in interactive mode.
+    1.stdin_open: true
+    2.tty: true 
+    >docker-compose exec service_name_in_compse_file bash
+#To clear the container 
+    sudo sh -c "truncate -s 0 /var/lib/docker/containers/**/*-json.log"
+#to build agian 
+    docker-compose up --force-recreate
+New EC2 Installation guid: 
+    Get permisson for docker command: sudo chmod 666 /var/run/docker.sock 
+    Get Permission for docker-compose command: chmod +x ~/.docker/cli-plugins/docker-compose
+    Install docker-compose: sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose [source: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04]
